@@ -8,7 +8,7 @@
 
 #import "ZASwitch.h"
 
-#define SWITCHBTN_HEIGHT 40
+#define SWITCHBTN_HEIGHT 36
 #define SWITCHBTN_RATIO  1.75          /*按钮比例*/
 #define ANIMATION_DURATION 0.2
 
@@ -141,12 +141,15 @@
     [self handleAnimation:animated];
 }
 
+-(void)setIsOn:(BOOL)isOn{
 
+    [self setIsOn:isOn animated:NO];
+}
 #pragma mark - 手势事件
 -(void)didTapSwitch{
     if (!self.isAnimation) {
         
-        self.isOn = !self.isOn;
+        _isOn = !_isOn;
         [self handleAnimation:YES];
     }
 }

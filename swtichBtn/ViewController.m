@@ -20,11 +20,9 @@
     
     ZASwitch * sw = [[ZASwitch alloc]initWithFrame:CGRectMake(100, 100, 40, 40)];
     [self.view addSubview:sw];
-
-    [sw setIsOn:NO animated:NO];
+    sw.isOn = NO;
     
     sw.delegate = self;
-    
     sw.statusBlock = ^(ZASwitch * btn){
         NSLog(@"statusBlock——%d",btn.isOn);
     };
