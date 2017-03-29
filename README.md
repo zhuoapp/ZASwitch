@@ -3,7 +3,7 @@
 
   
 
-![image](https://github.com/chuting/ZAShapButton/blob/master/ZAShapeButton.gif)
+![image](https://github.com/zhuoapp/ZASwitch/blob/master/demo.png)
 
 ## Example
 
