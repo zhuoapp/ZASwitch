@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'ZASwitch'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = '这是一个自定义switch'
 
 # This description is used to generate tags and improve search results.
