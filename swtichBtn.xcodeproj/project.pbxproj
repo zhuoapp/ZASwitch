@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
+=======
+		00FB71F51E8B8396009D5C12 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00FB71F21E8B8396009D5C12 /* image.xcassets */; };
+		00FB71F61E8B8396009D5C12 /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 00FB71F41E8B8396009D5C12 /* ZASwitch.m */; };
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		73663C3E1E8B42F50016BA2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C3D1E8B42F50016BA2A /* main.m */; };
 		73663C411E8B42F50016BA2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C401E8B42F50016BA2A /* AppDelegate.m */; };
 		73663C441E8B42F50016BA2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C431E8B42F50016BA2A /* ViewController.m */; };
@@ -15,11 +20,14 @@
 		73663C4C1E8B42F50016BA2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73663C4A1E8B42F50016BA2A /* LaunchScreen.storyboard */; };
 		73663C571E8B42F50016BA2A /* swtichBtnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C561E8B42F50016BA2A /* swtichBtnTests.m */; };
 		73663C621E8B42F60016BA2A /* swtichBtnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C611E8B42F60016BA2A /* swtichBtnUITests.m */; };
+<<<<<<< HEAD
 		73663C711E8B431D0016BA2A /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 73663C701E8B431D0016BA2A /* ZASwitch.m */; };
 		73663C7E1E8B7EEB0016BA2A /* switch_btn_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73663C7A1E8B7EEB0016BA2A /* switch_btn_icon@2x.png */; };
 		73663C7F1E8B7EEB0016BA2A /* switch_btn_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73663C7B1E8B7EEB0016BA2A /* switch_btn_icon@3x.png */; };
 		73663C801E8B7EEB0016BA2A /* switch_btn_shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73663C7C1E8B7EEB0016BA2A /* switch_btn_shadow@2x.png */; };
 		73663C811E8B7EEB0016BA2A /* switch_btn_shadow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 73663C7D1E8B7EEB0016BA2A /* switch_btn_shadow@3x.png */; };
+=======
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +48,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
+=======
+		00FB71F21E8B8396009D5C12 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		00FB71F31E8B8396009D5C12 /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
+		00FB71F41E8B8396009D5C12 /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		73663C391E8B42F50016BA2A /* swtichBtn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = swtichBtn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73663C3D1E8B42F50016BA2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73663C3F1E8B42F50016BA2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,12 +70,15 @@
 		73663C5D1E8B42F50016BA2A /* swtichBtnUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = swtichBtnUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73663C611E8B42F60016BA2A /* swtichBtnUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = swtichBtnUITests.m; sourceTree = "<group>"; };
 		73663C631E8B42F60016BA2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		73663C6F1E8B431D0016BA2A /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
 		73663C701E8B431D0016BA2A /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
 		73663C7A1E8B7EEB0016BA2A /* switch_btn_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_btn_icon@2x.png"; sourceTree = "<group>"; };
 		73663C7B1E8B7EEB0016BA2A /* switch_btn_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_btn_icon@3x.png"; sourceTree = "<group>"; };
 		73663C7C1E8B7EEB0016BA2A /* switch_btn_shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_btn_shadow@2x.png"; sourceTree = "<group>"; };
 		73663C7D1E8B7EEB0016BA2A /* switch_btn_shadow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "switch_btn_shadow@3x.png"; sourceTree = "<group>"; };
+=======
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +106,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+<<<<<<< HEAD
+=======
+		00FB71F11E8B8396009D5C12 /* ZASwitch */ = {
+			isa = PBXGroup;
+			children = (
+				00FB71F21E8B8396009D5C12 /* image.xcassets */,
+				00FB71F31E8B8396009D5C12 /* ZASwitch.h */,
+				00FB71F41E8B8396009D5C12 /* ZASwitch.m */,
+			);
+			path = ZASwitch;
+			sourceTree = "<group>";
+		};
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		73663C301E8B42F50016BA2A = {
 			isa = PBXGroup;
 			children = (
@@ -112,17 +142,24 @@
 		73663C3B1E8B42F50016BA2A /* swtichBtn */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
+=======
+				00FB71F11E8B8396009D5C12 /* ZASwitch */,
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 				73663C3F1E8B42F50016BA2A /* AppDelegate.h */,
 				73663C401E8B42F50016BA2A /* AppDelegate.m */,
 				73663C421E8B42F50016BA2A /* ViewController.h */,
 				73663C431E8B42F50016BA2A /* ViewController.m */,
 				73663C451E8B42F50016BA2A /* Main.storyboard */,
+<<<<<<< HEAD
 				73663C6F1E8B431D0016BA2A /* ZASwitch.h */,
 				73663C701E8B431D0016BA2A /* ZASwitch.m */,
 				73663C7A1E8B7EEB0016BA2A /* switch_btn_icon@2x.png */,
 				73663C7B1E8B7EEB0016BA2A /* switch_btn_icon@3x.png */,
 				73663C7C1E8B7EEB0016BA2A /* switch_btn_shadow@2x.png */,
 				73663C7D1E8B7EEB0016BA2A /* switch_btn_shadow@3x.png */,
+=======
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 				73663C481E8B42F50016BA2A /* Assets.xcassets */,
 				73663C4A1E8B42F50016BA2A /* LaunchScreen.storyboard */,
 				73663C4D1E8B42F50016BA2A /* Info.plist */,
@@ -264,11 +301,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+<<<<<<< HEAD
 				73663C7E1E8B7EEB0016BA2A /* switch_btn_icon@2x.png in Resources */,
 				73663C801E8B7EEB0016BA2A /* switch_btn_shadow@2x.png in Resources */,
 				73663C7F1E8B7EEB0016BA2A /* switch_btn_icon@3x.png in Resources */,
 				73663C4C1E8B42F50016BA2A /* LaunchScreen.storyboard in Resources */,
 				73663C811E8B7EEB0016BA2A /* switch_btn_shadow@3x.png in Resources */,
+=======
+				73663C4C1E8B42F50016BA2A /* LaunchScreen.storyboard in Resources */,
+				00FB71F51E8B8396009D5C12 /* image.xcassets in Resources */,
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 				73663C491E8B42F50016BA2A /* Assets.xcassets in Resources */,
 				73663C471E8B42F50016BA2A /* Main.storyboard in Resources */,
 			);
@@ -297,7 +339,11 @@
 			files = (
 				73663C441E8B42F50016BA2A /* ViewController.m in Sources */,
 				73663C411E8B42F50016BA2A /* AppDelegate.m in Sources */,
+<<<<<<< HEAD
 				73663C711E8B431D0016BA2A /* ZASwitch.m in Sources */,
+=======
+				00FB71F61E8B8396009D5C12 /* ZASwitch.m in Sources */,
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 				73663C3E1E8B42F50016BA2A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,6 +580,10 @@
 				73663C681E8B42F60016BA2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+<<<<<<< HEAD
+=======
+			defaultConfigurationName = Release;
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		};
 		73663C691E8B42F60016BA2A /* Build configuration list for PBXNativeTarget "swtichBtnTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +592,10 @@
 				73663C6B1E8B42F60016BA2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+<<<<<<< HEAD
+=======
+			defaultConfigurationName = Release;
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		};
 		73663C6C1E8B42F60016BA2A /* Build configuration list for PBXNativeTarget "swtichBtnUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +604,10 @@
 				73663C6E1E8B42F60016BA2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+<<<<<<< HEAD
+=======
+			defaultConfigurationName = Release;
+>>>>>>> d3f3723e133cb018216f95280bb78ea763d70b08
 		};
 /* End XCConfigurationList section */
 	};
