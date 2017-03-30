@@ -18,7 +18,7 @@ typedef void(^SwitchBtnStatusDidChangedBlock)(ZASwitch * switchBtn);
 
 @end
 
-@interface ZASwitch : UIView
+@interface ZASwitch : UIButton
 
 /**
     开启条的颜色，默认颜色为蓝色
@@ -42,7 +42,6 @@ typedef void(^SwitchBtnStatusDidChangedBlock)(ZASwitch * switchBtn);
  @param animated 不设置动画则不会将按钮状态进行回调
  */
 -(void)setIsOn:(BOOL)isOn animated:(BOOL)animated;
-
 
 #pragma mark - 状态回调
 //------------------ 以下三种方式都可以收到状态回调 -----------------//

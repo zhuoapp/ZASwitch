@@ -20,20 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    ZASwitch * switchView = [[ZASwitch alloc]initWithFrame:CGRectMake(100, 100, 40, 40)];
-    [self.view addSubview:switchView];
-    switchView.isOn = NO;
-    
-    switchView.delegate = self;
-    switchView.statusBlock = ^(ZASwitch * switchBtn){
-        NSLog(@"statusBlock——%d",switchBtn.isOn);
-    };
-    
-    [switchView setStatusChangedBlock:^(ZASwitch *switchBtn) {
+    _swBtn = ({
+        ZASwitch * switchView = [[ZASwitch alloc]initWithFrame:CGRectMake(100, 100, 40, 40)];
+        [self.view addSubview:switchView];
+        switchView.isOn = NO;
         
-    }];
+        switchView.delegate = self;
+        switchView.statusBlock = ^(ZASwitch * switchBtn){
+            NSLog(@"statusBlock——%d",switchBtn.isOn);
+        };
+        
+        switchView;
+    });
     
-    _swBtn = switchView;
     
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor blackColor];
@@ -46,7 +45,8 @@
     
     ZASwitch * switchView_1 = [[ZASwitch alloc]initWithFrame:CGRectMake(100, 200, 40, 40)];
     [self.view addSubview:switchView_1];
-    
+    [switchView_1 addTarget:self action:@selector(tapSW) forControlEvents:UIControlEventTouchUpInside];
+    [switchView_1 addTarget:self action:@selector(tapSW:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)changeSwitchOnColor:(UIButton *)btn{
@@ -63,4 +63,14 @@
 -(void)switchBtnStatuChanged:(ZASwitch *)switchBtn{
     NSLog(@"switchBtnStatuChanged——%d",switchBtn.isOn);
 }
+- (void)tapSW{
+    
+    NSLog(@"返回");
+}
+
+- (void)tapSW:(UIButton *)sw{
+
+    NSLog(@"返回%d",sw.selected);
+}
+
 @end

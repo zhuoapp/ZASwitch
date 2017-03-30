@@ -7,6 +7,8 @@
 //
 
 #import "ZASwitch.h"
+#import <objc/runtime.h>
+#import <objc/message.h>
 
 #define SWITCHBTN_HEIGHT 36
 #define SWITCHBTN_RATIO  1.75          /*按钮比例*/
@@ -21,12 +23,15 @@
 @interface ZASwitch ()
 {
     CGPoint _panPrePoint;
+    BOOL _selected;
 }
 
 @property (nonatomic , strong) UIImageView * iconView;   /*icon视图*/
 @property (nonatomic , assign) BOOL isAnimation;    /*是否正在动画*/
 @property (nonatomic , strong) UIView * backgroundView;  /*滑动背景视图*/
 @property (nonatomic , strong) UIView * bottomView ;     /*底部区域视图*/
+
+@property (nonatomic , strong) NSMutableArray * targetActionArr;              /*对象和触发方法*/
 
 @end
 
@@ -115,7 +120,18 @@
     
     //NSLog(@"backviewCenter:%@----iconViewCenter%@",[NSValue valueWithCGPoint:_backgroundView.center],[NSValue valueWithCGPoint:_iconView.center]);
 }
-#pragma mark - 重写设置颜色方法
+#pragma mark - 重写设置方法
+-(BOOL)isSelected{
+
+    return _isOn;
+}
+
+-(void)setSelected:(BOOL)selected{
+
+    self.isOn = selected;
+    _selected = selected;
+}
+
 -(void)setOnColor:(UIColor *)onColor{
 
     UIView * onView = [self viewWithTag:TAG_ON_VIEW];
@@ -149,6 +165,13 @@
 -(void)setStatusChangedBlock:(SwitchBtnStatusDidChangedBlock)block{
     
     _statusBlock = [block copy];
+}
+
+-(NSMutableArray *)targetActionArr{
+    if (!_targetActionArr) {
+        _targetActionArr = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _targetActionArr;
 }
 
 #pragma mark - 手势事件
@@ -214,18 +237,13 @@
     if (animated) {
         self.isAnimation = YES;
         [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+            
             _backgroundView.center = backViewCenter;
             _iconView.center = iconVIewCenter;
         } completion:^(BOOL finished) {
-            self.isAnimation = NO;
-            //NSLog(@"动画结束后的中心点%@",[NSValue valueWithCGPoint:_iconView.center]);
             
-            if (_statusBlock) {
-                _statusBlock(self);
-            }
-            if (_delegate && [_delegate respondsToSelector:@selector(switchBtnStatuChanged:)]) {
-                [_delegate switchBtnStatuChanged:self];
-            }
+            self.isAnimation = NO;
+            [self handleCallBack];
         }];
     }
     else{
@@ -233,9 +251,39 @@
         _iconView.center = iconVIewCenter;
         
     }
-    
 }
 
+- (void)handleCallBack{
+    
+    if (_statusBlock) {
+        _statusBlock(self);
+    }
+    if (_delegate && [_delegate respondsToSelector:@selector(switchBtnStatuChanged:)]) {
+        [_delegate switchBtnStatuChanged:self];
+    }
+    if (self.targetActionArr.count != 0) {
+        
+        for (NSDictionary * targetActionDict in self.targetActionArr) {
+            
+            id target = [targetActionDict objectForKey:@"target"];
+            NSString * selStr = [targetActionDict objectForKey:@"action"];
+            SEL sel = NSSelectorFromString(selStr);
+            //                    IMP imp = [target methodForSelector:sel];
+            //                    void (*func)(id,SEL,id) = (void *)imp;
+            //                    func(target,sel,self);
+            
+            ((void(*)(id,SEL,id))objc_msgSend)(target ,sel,self);
+        }
+    }
+}
 
+#pragma mark - 重写添加target方法
+-(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents{
+    
+    NSString * actionStr = NSStringFromSelector(action);
+    
+    NSDictionary * targetActionDict = @{@"target":target,@"action":actionStr};
+    [self.targetActionArr addObject:targetActionDict];
+}
 
 @end
