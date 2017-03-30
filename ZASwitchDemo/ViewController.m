@@ -39,14 +39,25 @@
     btn.backgroundColor = [UIColor blackColor];
     btn.frame = CGRectMake(100, 300, 200, 30);
     [btn setTitle:@"改变颜色" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(changeSwitchColor) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitle:@"改变颜色" forState:UIControlStateSelected];
+    [btn addTarget:self action:@selector(changeSwitchOnColor:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    ZASwitch * switchView_1 = [[ZASwitch alloc]initWithFrame:CGRectMake(100, 200, 40, 40)];
+    [self.view addSubview:switchView_1];
+    
 }
 
-- (void)changeSwitchColor{
+- (void)changeSwitchOnColor:(UIButton *)btn{
     
-    _swBtn.onColor = [UIColor redColor];
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        _swBtn.onColor = [UIColor redColor];
+    }
+    else{
+        _swBtn.offColor = [UIColor greenColor];
+    }
 }
 #pragma mark -  ZASwitchDelegate
 -(void)switchBtnStatuChanged:(ZASwitch *)switchBtn{
