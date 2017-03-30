@@ -69,7 +69,6 @@
 }
 
 - (void)tapSW:(UIButton *)sw{
-
     NSLog(@"返回%d",sw.selected);
 }
 
