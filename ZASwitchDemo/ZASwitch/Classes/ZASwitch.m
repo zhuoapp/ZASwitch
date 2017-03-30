@@ -61,9 +61,9 @@
     _bottomView = ({
         UIView * frameView = [[UIView alloc]initWithFrame:CGRectMake(3, 6, self.bounds.size.width - 6, self.bounds.size.height - 12)];
         frameView.tag = 100;
-        frameView.clipsToBounds = YES;
         [frameView.layer masksToBounds];
-        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5;
+        frameView.clipsToBounds = YES;
+        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5 + 0.5;
         [self addSubview:frameView];
         
         frameView;

@@ -35,7 +35,6 @@
     
     _swBtn = switchView;
     
-    
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.backgroundColor = [UIColor blackColor];
     btn.frame = CGRectMake(100, 300, 200, 30);
