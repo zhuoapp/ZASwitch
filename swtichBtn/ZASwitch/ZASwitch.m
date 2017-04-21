@@ -7,8 +7,9 @@
 //
 
 #import "ZASwitch.h"
+#import <objc/message.h>
 
-#define SWITCHBTN_HEIGHT 40
+#define SWITCHBTN_HEIGHT 36
 #define SWITCHBTN_RATIO  1.75          /*按钮比例*/
 #define ANIMATION_DURATION 0.2
 
@@ -21,12 +22,15 @@
 @interface ZASwitch ()
 {
     CGPoint _panPrePoint;
+    BOOL _selected;
 }
 
 @property (nonatomic , strong) UIImageView * iconView;   /*icon视图*/
 @property (nonatomic , assign) BOOL isAnimation;    /*是否正在动画*/
 @property (nonatomic , strong) UIView * backgroundView;  /*滑动背景视图*/
 @property (nonatomic , strong) UIView * bottomView ;     /*底部区域视图*/
+
+@property (nonatomic , strong) NSMutableArray * targetActionArr;              /*对象和触发方法*/
 
 @end
 
@@ -49,21 +53,19 @@
     
     _onColor = DEFAULT_ON_COLOR;
     _offColor = DEFAULT_OFF_COLOR;
-    
-    self.bounds = CGRectMake(0, 0, SWITCHBTN_HEIGHT * SWITCHBTN_RATIO ,  SWITCHBTN_HEIGHT);
-
+   
     UITapGestureRecognizer * tap =[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(didTapSwitch)];
     [self addGestureRecognizer:tap];
 }
 
 - (void)initWidget{
-
+    
     _bottomView = ({
         UIView * frameView = [[UIView alloc]initWithFrame:CGRectMake(3, 6, self.bounds.size.width - 6, self.bounds.size.height - 12)];
         frameView.tag = 100;
-        frameView.clipsToBounds = YES;
         [frameView.layer masksToBounds];
-        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5;
+        frameView.clipsToBounds = YES;
+        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5 + 0.5;
         [self addSubview:frameView];
         
         frameView;
@@ -72,7 +74,7 @@
     
     _backgroundView = ({
         UIView * backgroundView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 2 * (_bottomView.bounds.size.width), _bottomView.bounds.size.height)];
-         backgroundView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, _bottomView.bounds.size.height * 0.5 );
+        backgroundView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, _bottomView.bounds.size.height * 0.5 );
         [_bottomView addSubview:backgroundView];
         //加载滑动色块
         for (int i = 0; i < 2; i ++) {
@@ -102,7 +104,7 @@
         UIImageView * iconView = [[UIImageView alloc]initWithImage:icon];
         iconView.userInteractionEnabled = YES;
         CGFloat ratio = iconView.bounds.size.width / iconView.bounds.size.height;
-        iconView.bounds = CGRectMake(0, 0, self.bounds.size.height * ratio * 1.2 , self.bounds.size.height * 1.2);
+        iconView.bounds = CGRectMake(0, 0, self.bounds.size.height * ratio * 1.1 , self.bounds.size.height * 1.1);
         iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, self.bounds.size.height * 0.5 + 2);
         [self addSubview:iconView];
         
@@ -115,9 +117,34 @@
     
     //NSLog(@"backviewCenter:%@----iconViewCenter%@",[NSValue valueWithCGPoint:_backgroundView.center],[NSValue valueWithCGPoint:_iconView.center]);
 }
-#pragma mark - 重写设置颜色方法
--(void)setOnColor:(UIColor *)onColor{
+#pragma mark - 重写设置方法
 
+-(void)setFrame:(CGRect)frame{
+    
+    frame = CGRectMake(frame.origin.x, frame.origin.y, SWITCHBTN_HEIGHT * SWITCHBTN_RATIO ,  SWITCHBTN_HEIGHT);
+    
+    [super setFrame:frame];
+}
+
+-(void)setBounds:(CGRect)bounds{
+    
+    bounds = CGRectMake(0, 0, SWITCHBTN_HEIGHT * SWITCHBTN_RATIO ,  SWITCHBTN_HEIGHT);
+    
+    [super setBounds:bounds];
+}
+
+-(BOOL)isSelected{
+    
+    return _isOn;
+}
+
+-(void)setSelected:(BOOL)selected{
+    
+    self.isOn = selected;
+}
+
+-(void)setOnColor:(UIColor *)onColor{
+    
     UIView * onView = [self viewWithTag:TAG_ON_VIEW];
     if (onView) {
         onView.backgroundColor = onColor;
@@ -135,18 +162,34 @@
 }
 
 -(void)setIsOn:(BOOL)isOn animated:(BOOL)animated{
-
+    
     _isOn = isOn;
-
+    
     [self handleAnimation:animated];
 }
 
+-(void)setIsOn:(BOOL)isOn{
+    
+    [self setIsOn:isOn animated:NO];
+}
+
+-(void)setStatusChangedBlock:(SwitchBtnStatusDidChangedBlock)block{
+    
+    _statusBlock = [block copy];
+}
+
+-(NSMutableArray *)targetActionArr{
+    if (!_targetActionArr) {
+        _targetActionArr = [NSMutableArray arrayWithCapacity:1];
+    }
+    return _targetActionArr;
+}
 
 #pragma mark - 手势事件
 -(void)didTapSwitch{
     if (!self.isAnimation) {
         
-        self.isOn = !self.isOn;
+        _isOn = !_isOn;
         [self handleAnimation:YES];
     }
 }
@@ -188,13 +231,13 @@
 
 #pragma mark - 动画效果
 -(void)handleAnimation:(BOOL)animated{
-
+    
     UIView * frameView = _bottomView;
     
     CGPoint backViewCenter;
     CGPoint iconVIewCenter;
     if (self.isOn) {
-         backViewCenter = CGPointMake(CGRectGetMaxX(frameView.frame) - frameView.frame.size.height * 0.5, _backgroundView.center.y);
+        backViewCenter = CGPointMake(CGRectGetMaxX(frameView.frame) - frameView.frame.size.height * 0.5, _backgroundView.center.y);
         iconVIewCenter = CGPointMake(backViewCenter.x, _iconView.center.y);
     }
     else{
@@ -205,18 +248,13 @@
     if (animated) {
         self.isAnimation = YES;
         [UIView animateWithDuration:ANIMATION_DURATION animations:^{
+            
             _backgroundView.center = backViewCenter;
             _iconView.center = iconVIewCenter;
         } completion:^(BOOL finished) {
-            self.isAnimation = NO;
-            //NSLog(@"动画结束后的中心点%@",[NSValue valueWithCGPoint:_iconView.center]);
             
-            if (_statusBlock) {
-                _statusBlock(self);
-            }
-            if (_delegate && [_delegate respondsToSelector:@selector(switchBtnStatuChanged:)]) {
-                [_delegate switchBtnStatuChanged:self];
-            }
+            self.isAnimation = NO;
+            [self handleCallBack];
         }];
     }
     else{
@@ -224,7 +262,39 @@
         _iconView.center = iconVIewCenter;
         
     }
+}
+
+- (void)handleCallBack{
     
+    if (_statusBlock) {
+        _statusBlock(self);
+    }
+    if (_delegate && [_delegate respondsToSelector:@selector(switchBtnStatuChanged:)]) {
+        [_delegate switchBtnStatuChanged:self];
+    }
+    if (self.targetActionArr.count != 0) {
+        
+        for (NSDictionary * targetActionDict in self.targetActionArr) {
+            
+            id target = [targetActionDict objectForKey:@"target"];
+            NSString * selStr = [targetActionDict objectForKey:@"action"];
+            SEL sel = NSSelectorFromString(selStr);
+            //                    IMP imp = [target methodForSelector:sel];
+            //                    void (*func)(id,SEL,id) = (void *)imp;
+            //                    func(target,sel,self);
+            
+            ((void(*)(id,SEL,id))objc_msgSend)(target ,sel,self);
+        }
+    }
+}
+
+#pragma mark - 重写添加target方法
+-(void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents{
+    
+    NSString * actionStr = NSStringFromSelector(action);
+    
+    NSDictionary * targetActionDict = @{@"target":target,@"action":actionStr};
+    [self.targetActionArr addObject:targetActionDict];
 }
 
 @end
