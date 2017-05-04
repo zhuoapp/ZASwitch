@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00C233521EBB151D0075DD65 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C2334E1EBB151D0075DD65 /* image.xcassets */; };
+		00C233531EBB151D0075DD65 /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C233511EBB151D0075DD65 /* ZASwitch.m */; };
 		73AE749F1E8C9CA600AA0B21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE749E1E8C9CA600AA0B21 /* main.m */; };
 		73AE74A21E8C9CA600AA0B21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74A11E8C9CA600AA0B21 /* AppDelegate.m */; };
 		73AE74A51E8C9CA600AA0B21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74A41E8C9CA600AA0B21 /* ViewController.m */; };
@@ -15,8 +17,6 @@
 		73AE74AD1E8C9CA600AA0B21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 73AE74AB1E8C9CA600AA0B21 /* LaunchScreen.storyboard */; };
 		73AE74B81E8C9CA600AA0B21 /* ZASwitchDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74B71E8C9CA600AA0B21 /* ZASwitchDemoTests.m */; };
 		73AE74C31E8C9CA600AA0B21 /* ZASwitchDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74C21E8C9CA600AA0B21 /* ZASwitchDemoUITests.m */; };
-		73AE74D61E8C9D6800AA0B21 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73AE74D21E8C9D6800AA0B21 /* image.xcassets */; };
-		73AE74D71E8C9D6800AA0B21 /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74D51E8C9D6800AA0B21 /* ZASwitch.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00C2334E1EBB151D0075DD65 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		00C233501EBB151D0075DD65 /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
+		00C233511EBB151D0075DD65 /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
 		73AE749A1E8C9CA600AA0B21 /* ZASwitchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZASwitchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AE749E1E8C9CA600AA0B21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73AE74A01E8C9CA600AA0B21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -53,9 +56,6 @@
 		73AE74BE1E8C9CA600AA0B21 /* ZASwitchDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZASwitchDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AE74C21E8C9CA600AA0B21 /* ZASwitchDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZASwitchDemoUITests.m; sourceTree = "<group>"; };
 		73AE74C41E8C9CA600AA0B21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		73AE74D21E8C9D6800AA0B21 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
-		73AE74D41E8C9D6800AA0B21 /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
-		73AE74D51E8C9D6800AA0B21 /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +83,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00C2334C1EBB151D0075DD65 /* ZASwitch */ = {
+			isa = PBXGroup;
+			children = (
+				00C2334D1EBB151D0075DD65 /* Assets */,
+				00C2334F1EBB151D0075DD65 /* Classes */,
+			);
+			path = ZASwitch;
+			sourceTree = "<group>";
+		};
+		00C2334D1EBB151D0075DD65 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				00C2334E1EBB151D0075DD65 /* image.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		00C2334F1EBB151D0075DD65 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				00C233501EBB151D0075DD65 /* ZASwitch.h */,
+				00C233511EBB151D0075DD65 /* ZASwitch.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		73AE74911E8C9CA600AA0B21 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +132,7 @@
 		73AE749C1E8C9CA600AA0B21 /* ZASwitchDemo */ = {
 			isa = PBXGroup;
 			children = (
+				00C2334C1EBB151D0075DD65 /* ZASwitch */,
 				73AE74A01E8C9CA600AA0B21 /* AppDelegate.h */,
 				73AE74A11E8C9CA600AA0B21 /* AppDelegate.m */,
 				73AE74A31E8C9CA600AA0B21 /* ViewController.h */,
@@ -114,7 +141,6 @@
 				73AE74A91E8C9CA600AA0B21 /* Assets.xcassets */,
 				73AE74AB1E8C9CA600AA0B21 /* LaunchScreen.storyboard */,
 				73AE74AE1E8C9CA600AA0B21 /* Info.plist */,
-				73AE74D01E8C9D6800AA0B21 /* ZASwitch */,
 				73AE749D1E8C9CA600AA0B21 /* Supporting Files */,
 			);
 			path = ZASwitchDemo;
@@ -144,32 +170,6 @@
 				73AE74C41E8C9CA600AA0B21 /* Info.plist */,
 			);
 			path = ZASwitchDemoUITests;
-			sourceTree = "<group>";
-		};
-		73AE74D01E8C9D6800AA0B21 /* ZASwitch */ = {
-			isa = PBXGroup;
-			children = (
-				73AE74D11E8C9D6800AA0B21 /* Assets */,
-				73AE74D31E8C9D6800AA0B21 /* Classes */,
-			);
-			path = ZASwitch;
-			sourceTree = "<group>";
-		};
-		73AE74D11E8C9D6800AA0B21 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				73AE74D21E8C9D6800AA0B21 /* image.xcassets */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		73AE74D31E8C9D6800AA0B21 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				73AE74D41E8C9D6800AA0B21 /* ZASwitch.h */,
-				73AE74D51E8C9D6800AA0B21 /* ZASwitch.m */,
-			);
-			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AE74AD1E8C9CA600AA0B21 /* LaunchScreen.storyboard in Resources */,
-				73AE74D61E8C9D6800AA0B21 /* image.xcassets in Resources */,
+				00C233521EBB151D0075DD65 /* image.xcassets in Resources */,
 				73AE74AA1E8C9CA600AA0B21 /* Assets.xcassets in Resources */,
 				73AE74A81E8C9CA600AA0B21 /* Main.storyboard in Resources */,
 			);
@@ -308,8 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AE74A51E8C9CA600AA0B21 /* ViewController.m in Sources */,
+				00C233531EBB151D0075DD65 /* ZASwitch.m in Sources */,
 				73AE74A21E8C9CA600AA0B21 /* AppDelegate.m in Sources */,
-				73AE74D71E8C9D6800AA0B21 /* ZASwitch.m in Sources */,
 				73AE749F1E8C9CA600AA0B21 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
