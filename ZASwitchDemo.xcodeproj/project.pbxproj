@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00C233521EBB151D0075DD65 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C2334E1EBB151D0075DD65 /* image.xcassets */; };
-		00C233531EBB151D0075DD65 /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C233511EBB151D0075DD65 /* ZASwitch.m */; };
+		00C2335A1EBB29C00075DD65 /* image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00C233561EBB29C00075DD65 /* image.xcassets */; };
+		00C2335B1EBB29C00075DD65 /* ZASwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C233591EBB29C00075DD65 /* ZASwitch.m */; };
 		73AE749F1E8C9CA600AA0B21 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE749E1E8C9CA600AA0B21 /* main.m */; };
 		73AE74A21E8C9CA600AA0B21 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74A11E8C9CA600AA0B21 /* AppDelegate.m */; };
 		73AE74A51E8C9CA600AA0B21 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73AE74A41E8C9CA600AA0B21 /* ViewController.m */; };
@@ -37,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00C2334E1EBB151D0075DD65 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
-		00C233501EBB151D0075DD65 /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
-		00C233511EBB151D0075DD65 /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
+		00C233561EBB29C00075DD65 /* image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = image.xcassets; sourceTree = "<group>"; };
+		00C233581EBB29C00075DD65 /* ZASwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZASwitch.h; sourceTree = "<group>"; };
+		00C233591EBB29C00075DD65 /* ZASwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZASwitch.m; sourceTree = "<group>"; };
 		73AE749A1E8C9CA600AA0B21 /* ZASwitchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZASwitchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73AE749E1E8C9CA600AA0B21 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		73AE74A01E8C9CA600AA0B21 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -83,28 +83,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00C2334C1EBB151D0075DD65 /* ZASwitch */ = {
+		00C233541EBB29C00075DD65 /* ZASwitch */ = {
 			isa = PBXGroup;
 			children = (
-				00C2334D1EBB151D0075DD65 /* Assets */,
-				00C2334F1EBB151D0075DD65 /* Classes */,
+				00C233551EBB29C00075DD65 /* Assets */,
+				00C233571EBB29C00075DD65 /* Classes */,
 			);
 			path = ZASwitch;
-			sourceTree = "<group>";
+			sourceTree = SOURCE_ROOT;
 		};
-		00C2334D1EBB151D0075DD65 /* Assets */ = {
+		00C233551EBB29C00075DD65 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				00C2334E1EBB151D0075DD65 /* image.xcassets */,
+				00C233561EBB29C00075DD65 /* image.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		00C2334F1EBB151D0075DD65 /* Classes */ = {
+		00C233571EBB29C00075DD65 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				00C233501EBB151D0075DD65 /* ZASwitch.h */,
-				00C233511EBB151D0075DD65 /* ZASwitch.m */,
+				00C233581EBB29C00075DD65 /* ZASwitch.h */,
+				00C233591EBB29C00075DD65 /* ZASwitch.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 		73AE749C1E8C9CA600AA0B21 /* ZASwitchDemo */ = {
 			isa = PBXGroup;
 			children = (
-				00C2334C1EBB151D0075DD65 /* ZASwitch */,
+				00C233541EBB29C00075DD65 /* ZASwitch */,
 				73AE74A01E8C9CA600AA0B21 /* AppDelegate.h */,
 				73AE74A11E8C9CA600AA0B21 /* AppDelegate.m */,
 				73AE74A31E8C9CA600AA0B21 /* ViewController.h */,
@@ -280,7 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AE74AD1E8C9CA600AA0B21 /* LaunchScreen.storyboard in Resources */,
-				00C233521EBB151D0075DD65 /* image.xcassets in Resources */,
+				00C2335A1EBB29C00075DD65 /* image.xcassets in Resources */,
 				73AE74AA1E8C9CA600AA0B21 /* Assets.xcassets in Resources */,
 				73AE74A81E8C9CA600AA0B21 /* Main.storyboard in Resources */,
 			);
@@ -308,8 +308,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				73AE74A51E8C9CA600AA0B21 /* ViewController.m in Sources */,
-				00C233531EBB151D0075DD65 /* ZASwitch.m in Sources */,
 				73AE74A21E8C9CA600AA0B21 /* AppDelegate.m in Sources */,
+				00C2335B1EBB29C00075DD65 /* ZASwitch.m in Sources */,
 				73AE749F1E8C9CA600AA0B21 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

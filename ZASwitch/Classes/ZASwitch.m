@@ -9,11 +9,12 @@
 #import "ZASwitch.h"
 #import <objc/message.h>
 
-#define SWITCHBTN_HEIGHT 36
-#define SWITCHBTN_RATIO  1.75          /*按钮比例*/
+#define SWITCHBTN_HEIGHT    ( [UIImage imageNamed:@"switch_btn_shadow"] .size.height + 14)
+#define SWITCHBTN_RATIO  1.6          /*按钮比例*/
 #define ANIMATION_DURATION 0.2
 
 #define  DEFAULT_OFF_COLOR  [UIColor colorWithRed:194.0/255.0f green:195.0/255.0f blue:196.0/255.0f alpha:1.0f]
+//#define  DEFAULT_OFF_COLOR  [UIColor colorWithRed:255/255.0f green:0/255.0f blue:0/255.0f alpha:1.0f]
 #define  DEFAULT_ON_COLOR  [UIColor colorWithRed:75.0/255.0f green:161.0/255.0f blue:245.0/255.0f alpha:1.0f]
 
 #define TAG_ON_VIEW 200
@@ -61,11 +62,11 @@
 - (void)initWidget{
     
     _bottomView = ({
-        UIView * frameView = [[UIView alloc]initWithFrame:CGRectMake(3, 6, self.bounds.size.width - 6, self.bounds.size.height - 12)];
+        UIView * frameView = [[UIView alloc]initWithFrame:CGRectMake(6, 7, self.bounds.size.width - 12, self.bounds.size.height - 14)];
         frameView.tag = 100;
         [frameView.layer masksToBounds];
         frameView.clipsToBounds = YES;
-        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5 + 0.5;
+        frameView.layer.cornerRadius = frameView.bounds.size.height * 0.5 ;
         [self addSubview:frameView];
         
         frameView;
@@ -93,9 +94,11 @@
         backgroundView;
     });
     
+
+    UIImage *image = [UIImage imageNamed:@"switch_btn_shadow"] ;
     //加阴影
     UIImageView * shadowImageView = [[UIImageView alloc]initWithFrame:_bottomView.frame];
-    shadowImageView.image = [UIImage imageNamed:@"switch_btn_shadow"];
+    shadowImageView.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height, image.size.width/2-1, image.size.height, image.size.width/2-1)];
     [self addSubview:shadowImageView];
     
     //加载滑动图标
@@ -105,7 +108,7 @@
         iconView.userInteractionEnabled = YES;
         CGFloat ratio = iconView.bounds.size.width / iconView.bounds.size.height;
         iconView.bounds = CGRectMake(0, 0, self.bounds.size.height * ratio * 1.1 , self.bounds.size.height * 1.1);
-        iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, self.bounds.size.height * 0.5 + 2);
+        iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, self.bounds.size.height * 0.5);
         [self addSubview:iconView];
         
         //添加滑动手势
