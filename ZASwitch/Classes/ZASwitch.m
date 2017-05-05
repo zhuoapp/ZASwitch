@@ -9,8 +9,8 @@
 #import "ZASwitch.h"
 #import <objc/message.h>
 
-#define SWITCHBTN_HEIGHT    ( [UIImage imageNamed:@"switch_btn_shadow"] .size.height + 14)
-#define SWITCHBTN_RATIO  1.6          /*按钮比例*/
+#define SWITCHBTN_HEIGHT    ( [UIImage imageNamed:@"switch_btn_shadow"] .size.height + 16)
+#define SWITCHBTN_RATIO  1.7          /*按钮比例*/
 #define ANIMATION_DURATION 0.2
 
 #define  DEFAULT_OFF_COLOR  [UIColor colorWithRed:194.0/255.0f green:195.0/255.0f blue:196.0/255.0f alpha:1.0f]
@@ -97,18 +97,21 @@
 
     UIImage *image = [UIImage imageNamed:@"switch_btn_shadow"] ;
     //加阴影
-    UIImageView * shadowImageView = [[UIImageView alloc]initWithFrame:_bottomView.frame];
+    UIImageView * shadowImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0.5, 0.5, _bottomView.frame.size.width-1, _bottomView.frame.size.height-2)];
     shadowImageView.image = [image resizableImageWithCapInsets:UIEdgeInsetsMake(image.size.height, image.size.width/2-1, image.size.height, image.size.width/2-1)];
-    [self addSubview:shadowImageView];
+    [_bottomView addSubview:shadowImageView];
     
     //加载滑动图标
     _iconView = ({
-        UIImage * icon = [UIImage imageNamed:@"switch_btn_icon"];
+        UIImage * icon = [UIImage imageNamed:@"switch_btn_icon_2"];
+        NSInteger iconHeight = CGRectGetHeight(self.frame);
         UIImageView * iconView = [[UIImageView alloc]initWithImage:icon];
+//        iconView.contentMode = UIViewContentModeCenter;
+//        self.backgroundColor = [UIColor blueColor];
         iconView.userInteractionEnabled = YES;
         CGFloat ratio = iconView.bounds.size.width / iconView.bounds.size.height;
-        iconView.bounds = CGRectMake(0, 0, self.bounds.size.height * ratio * 1.1 , self.bounds.size.height * 1.1);
-        iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5, self.bounds.size.height * 0.5);
+        iconView.bounds = CGRectMake(0, 0, iconHeight,iconHeight);
+        iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5,_bottomView.center.y);
         [self addSubview:iconView];
         
         //添加滑动手势
@@ -117,6 +120,9 @@
         
         iconView;
     });
+    
+//    _iconView.backgroundColor = [UIColor redColor];
+//    self.backgroundColor = [UIColor blueColor];
     
     //NSLog(@"backviewCenter:%@----iconViewCenter%@",[NSValue valueWithCGPoint:_backgroundView.center],[NSValue valueWithCGPoint:_iconView.center]);
 }
