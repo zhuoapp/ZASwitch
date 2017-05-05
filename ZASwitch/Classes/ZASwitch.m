@@ -109,7 +109,7 @@
 //        iconView.contentMode = UIViewContentModeCenter;
 //        self.backgroundColor = [UIColor blueColor];
         iconView.userInteractionEnabled = YES;
-        CGFloat ratio = iconView.bounds.size.width / iconView.bounds.size.height;
+//        CGFloat ratio = iconView.bounds.size.width / iconView.bounds.size.height;
         iconView.bounds = CGRectMake(0, 0, iconHeight,iconHeight);
         iconView.center = CGPointMake(CGRectGetMaxX(_bottomView.frame) - _bottomView.frame.size.height * 0.5,_bottomView.center.y);
         [self addSubview:iconView];
